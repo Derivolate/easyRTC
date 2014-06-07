@@ -1,0 +1,26 @@
+#wrapper {
+  position:relative;
+}
+#connect_controls {
+  float:left;
+  width:250px;
+  text-align:center;
+  border: 2px solid black;
+}
+#other_clients {
+  height:200px;
+  overflow-y:scroll;
+}
+#self_video {
+  height:225px;
+  width:300px;
+  float:left;
+  border:1px solid gray;
+  margin-left:10px;
+}
+.caller_video {
+  height:225px;
+  width:300px;
+  border:1px solid gray;
+  margin-left:10px;
+}
