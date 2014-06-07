@@ -3,18 +3,16 @@ var connected_rtcid;
 var connected_peers = [];
 function connect () {
     easyrtc.setPeerListener (add_to_conversation); // Is called whenever there
-                                                    // is sent data to this peer
+    // is sent data to this peer
     easyrtc.setRoomOccupantListener (peer_connected); // Is called every time
-                                                        // a user joins the room
+    // a user joins the room
     easyrtc.easyApp ("easyrtc.audio_video", // The name of our application
     "self_video", // Id of the video element for our own media stream
 
     [// Array containing the id's of the video elements for the incoming
-        // media stream
+            // media stream
             "cv1",
-    ],
-
-    function (easyrtcid) { // Initialisation succes callback
+    ], function (easyrtcid) { // Initialisation succes callback
         selfEasyrtcid = easyrtcid;
         document.getElementById ("iam").innerHTML = "I am " + easyrtc.cleanId (easyrtcid);
     },
@@ -37,7 +35,7 @@ function send_message () {
 
 function send_stuff_WS (easy_rtcid, text) {
     if (text.replace (/\s/g, "").length === 0) { // Don"t send just
-                                                    // whitespace
+        // whitespace
         return;
     }
     easyrtc.sendDataWS (easy_rtcid, "message", text);
@@ -77,28 +75,24 @@ function perform_call (other_easyrtcid) {
     easyrtc.call (other_easyrtcid, successCB, failureCB);
 }
 function add_to_conversation (who, msg_type, content) { // This function is used
-                                                        // to add messages to
-                                                        // the 'conversation'
-                                                        // div
+    // to add messages to
+    // the 'conversation'
+    // div
     // Replaces all html symbols with javascript symbols.
-    content = content.replace (/&/g, "&amp;")/* Ampercent */.replace (/</g, "&lt;")/*
-                                                                                     * smaller
-                                                                                     * then
-                                                                                     */.replace (/>/g, "&gt;") /*
-                                                                                                                                 * greater
-                                                                                                                                 * then
-                                                                                                                                 */;
+    content = content.replace (/&/g, "&amp;")/* Ampercent */
+    content = content.replace (/</g, "&lt;")/* smaller then */
+    content = content.replace (/>/g, "&gt;") /* greater then */;
     content = content.replace (/\n/g, "<br />") /* New line */;
     document.getElementById ("conversation").innerHTML += "<b>" + who + ":</b>&nbsp;" + content + "<br />"; // The
-                                                                                                            // actual
-                                                                                                            // chat
-                                                                                                            // mesage
-                                                                                                            // with
-                                                                                                            // the
-                                                                                                            // peer
-                                                                                                            // id
-                                                                                                            // in
-                                                                                                            // front
-                                                                                                            // of
-                                                                                                            // it
+    // actual
+    // chat
+    // mesage
+    // with
+    // the
+    // peer
+    // id
+    // in
+    // front
+    // of
+    // it
 }
