@@ -1,4 +1,4 @@
-EasyRTC Server Example
+EasyRTC App
 ======================
 
 This folder contains all the files you'll need to run a server for this app
