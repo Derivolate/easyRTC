@@ -5,6 +5,14 @@ function init(){
 }
 
 function connect () {
+    var userName = document.getElementById ("userName").value;
+    if (!easyrtc.isNameValid (userName)) {
+        //easyrtc.showError ("BAD-USER-NAME", "illegal user name");
+        return;
+    }
+    easyrtc.setUsername (userName);
+
+    
     document.getElementById ("overlay").style.visibility = "hidden";
     easyrtc.setPeerListener (add_to_conversation); // Is called whenever there
     // is sent data to this peer
@@ -18,7 +26,7 @@ function connect () {
             "cv1",
     ], function (easyrtcid) { // Initialisation succes callback
         selfEasyrtcid = easyrtcid;
-        document.getElementById ("iam").innerHTML = "I am " + easyrtc.cleanId (easyrtcid);
+        document.getElementById ("iam").innerHTML = "I am " + easyrtc.idToName(easyrtcid);
     },
 
     function (errorCode, message) { // Initialisation failure callback
@@ -85,5 +93,5 @@ function add_to_conversation (who, msg_type, content) { // add messages to the '
     content = content.replace (/>/g, "&gt;"); /* greater then */
     content = content.replace (/\n/g, "<br />"); /* New line */
     // The actual chat mesage with the peer id in front of it
-    document.getElementById ("conversation").innerHTML += "<b>" + who + ":</b>&nbsp;" + content + "<br />";
+    document.getElementById ("conversation").innerHTML += "<b>" + who.idToName (easyrtcid) + ":</b>&nbsp;" + content + "<br />";
 }

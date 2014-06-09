@@ -12,11 +12,14 @@
 </head>
 <body onload="init();">
 	<div id="overlay">
-	<button id="connect" onclick="connect()">connect</button></div>
+		<button id="connect" onclick="connect()">connect</button>
+		<br /> Your name: <input type="text" id="userName" />
+	</div>
+
 	<div id="wrapper">
 		<div id="connect_controls">
 			<div id="iam">not yet connected...</div>
-			<br /> <strong>connected users:</strong>
+			<br /> <strong>connected user:</strong>
 			<div id="other_clients"></div>
 		</div>
 		<div id="videos">
@@ -27,17 +30,17 @@
 			</div>
 			<!-- each caller video needs to be in it"s own div so it"s close button can be positioned correctly -->
 		</div>
-		
+
 		<div id="chat">
-		<div id="send_message_area">
-			<textarea id="send_message_text"></textarea>
-		</div>
-		<div id="receive_message_area">
-			messages:
-			<div id="conversation"></div>
-		</div>
-		
-		<button id="send">send</button>
+			<div id="send_message_area">
+				<textarea id="send_message_text"></textarea>
+			</div>
+			<div id="receive_message_area">
+				messages:
+				<div id="conversation"></div>
+			</div>
+
+			<button id="send">send</button>
 		</div>
 	</div>
 </body>
