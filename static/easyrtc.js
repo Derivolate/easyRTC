@@ -1,7 +1,11 @@
 var selfEasyrtcid = "";
 var connected_rtcid;
 var connected_peers = [];
+function init(){
+}
+
 function connect () {
+    document.getElementById ("overlay").style.visibility = "hidden";
     easyrtc.setPeerListener (add_to_conversation); // Is called whenever there
     // is sent data to this peer
     easyrtc.setRoomOccupantListener (peer_connected); // Is called every time
@@ -74,25 +78,12 @@ function perform_call (other_easyrtcid) {
     };
     easyrtc.call (other_easyrtcid, successCB, failureCB);
 }
-function add_to_conversation (who, msg_type, content) { // This function is used
-    // to add messages to
-    // the 'conversation'
-    // div
+function add_to_conversation (who, msg_type, content) { // add messages to the 'conversation' div
     // Replaces all html symbols with javascript symbols.
-    content = content.replace (/&/g, "&amp;")/* Ampercent */
-    content = content.replace (/</g, "&lt;")/* smaller then */
-    content = content.replace (/>/g, "&gt;") /* greater then */;
-    content = content.replace (/\n/g, "<br />") /* New line */;
-    document.getElementById ("conversation").innerHTML += "<b>" + who + ":</b>&nbsp;" + content + "<br />"; // The
-    // actual
-    // chat
-    // mesage
-    // with
-    // the
-    // peer
-    // id
-    // in
-    // front
-    // of
-    // it
+    content = content.replace (/&/g, "&amp;");/* Ampercent */
+    content = content.replace (/</g, "&lt;");/* smaller then */
+    content = content.replace (/>/g, "&gt;"); /* greater then */
+    content = content.replace (/\n/g, "<br />"); /* New line */
+    // The actual chat mesage with the peer id in front of it
+    document.getElementById ("conversation").innerHTML += "<b>" + who + ":</b>&nbsp;" + content + "<br />";
 }

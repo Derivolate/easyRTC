@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EasyRTC Demo: Screen Sharing Receiver</title>
+    <link rel="stylesheet" type="text/css" href="/easyrtc/easyrtc.css" />
+ 
+    <!-- Assumes global locations for socket.io.js and easyrtc.js -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
+    <script type="text/javascript" src="usernames.js"></script>
+  </head>
+  <body onload="initApp">
+          <div id="connectControls">
+ 
+            <span style="float:left">
+              Your name: <input type="text" id="userName" />
+              </span>
+            <span style="float:left;clear:both">
+            <button id="connectButton" onclick="connect()">Connect to server</button>
+            </span>
+            <div style="float:left;clear:both" id="otherClients"></div>
+            
+          </div>
+  </body>
+</html>

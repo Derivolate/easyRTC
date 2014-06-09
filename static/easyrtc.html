@@ -10,7 +10,9 @@
 <script type="text/javascript" src="easyrtc.js"></script>
 
 </head>
-<body onload="connect();">
+<body onload="init();">
+	<div id="overlay">
+	<button id="connect" onclick="connect()">connect</button></div>
 	<div id="wrapper">
 		<div id="connect_controls">
 			<div id="iam">not yet connected...</div>
