@@ -1,24 +1,33 @@
 {
-  "name"        : "easyrtc_server_example",
-  "version"     : "0.1.6",
-  "author"      : "Priologic Software Inc. <info@priologic.com> (http://priologic.com/)",
-  "description" : "Simple EasyRTC server example which includes EasyRTC, Express, and Socket.io",
+    "name": "Easyrtc_app",
 
-  "private"     : true,
-
-  "scripts": {
-    "start"     : "node server.js"
-  },
-
-  "dependencies" : {
-    "easyrtc"   : "*",
-    "express"   : "*",
-    "socket.io" : "0.9.x"
-  },
-
-  "license"     : "BSD2",
-
-  "engines": {
-    "node"      : ">=0.8"
-  }
+    "author": "Bastiaan van Hoorn",
+    "bugs": {
+        "url": "https://github.com/XD-face-me/easyRTC/issues",
+        "email": "bastiaan97.bvh@gmail.com"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
+    },
+    "dependencies": {
+        "easyrtc": "*",
+        "express": "*",
+        "socket.io": "0.9.x"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-jshint": "~0.7.2",
+        "grunt-contrib-watch": "~0.5.3",
+        "grunt-contrib-qunit": "~0.3.0",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-uglify": "~0.2.7"
+    },
+    "licenses": {
+        "type": "GPL",
+        "url": "http://www.gnu.org/copyleft/gpl.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/XD-face-me/easyRTC.git"
+    }
 }
