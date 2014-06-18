@@ -11,7 +11,7 @@ function connect() {
         return;
     }
     easyrtc.setUsername(userName);
-
+    console.log();
 
     document.getElementById("overlay").style.visibility = "hidden";
     easyrtc.setPeerListener(add_to_conversation); // Is called whenever there
@@ -91,5 +91,5 @@ function add_to_conversation(who, msg_type, content) { // add messages to the 'c
     content = content.replace(/>/g, "&gt;"); /* greater then */
     content = content.replace(/\n/g, "<br />"); /* New line */
     // The actual chat mesage with the peer id in front of it
-    document.getElementById("conversation").innerHTML += "<b>" + who.idToName(easyrtcid) + ":</b>&nbsp;" + content + "<br />";
+    document.getElementById("conversation").innerHTML += "<b>" + easyrtc.idToName(who) + ":</b>&nbsp;" + content + "<br />";
 }
