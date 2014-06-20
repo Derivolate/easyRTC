@@ -18,6 +18,12 @@ module.exports = function(grunt) {
                 dest: client_build
             },
             server: {
+                options: {
+                    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+                        ' <%= grunt.template.today("yyyy-mm-dd") %> */ \n' +
+                        '(function(){\n',
+                    footer: '\n})();'
+                }
                 src: server_source,
                 dest: 'server.js'
             }

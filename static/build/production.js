@@ -4,6 +4,7 @@ function add_listeners() {
     document.getElementById('connect').addEventListener('click', connect);
 
 };
+
 function connect() {
     var userName = document.getElementById("userName").value;
     if (!easyrtc.isNameValid(userName)) {
@@ -93,6 +94,7 @@ function add_to_conversation(who, msg_type, content) { // add messages to the 'c
     // The actual chat mesage with the peer id in front of it
     document.getElementById("conversation").innerHTML += "<b>" + easyrtc.idToName(who) + ":</b>&nbsp;" + content + "<br />";
 }
+
 function game_init() {
 
 
@@ -126,9 +128,11 @@ function game_init() {
         }
     });
 }
+
 function game_loop() {
     socket.emit('keys', keys);
 };
+
 // Globals needed for easyrtc
 var selfEasyrtcid = "";
 var connected_rtcid;
@@ -139,4 +143,5 @@ add_listeners();
 function init() {
     game_init();
 }
+
 };
