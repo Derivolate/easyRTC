@@ -1,6 +1,3 @@
-function game() {
-    // Actual game loop
-};
 (function() {
     //Load required modules
     var https = require("https"); // https server core module

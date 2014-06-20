@@ -1,7 +1,8 @@
 {
     "name": "Easyrtc_app",
-
+    "description": "An application to have a conversation with multiple other users with some media in the center of the screen",
     "author": "Bastiaan van Hoorn",
+    "version": "0.0.3",
     "bugs": {
         "url": "https://github.com/XD-face-me/easyRTC/issues",
         "email": "bastiaan97.bvh@gmail.com"
