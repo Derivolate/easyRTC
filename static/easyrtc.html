@@ -1,47 +1,57 @@
 <!doctype html>
 <html>
-<head>
-<title>easyrtc demo: simple audio and video chat</title>
-<link rel="stylesheet" type="text/css" href="easyrtc.css" />
 
-<!-- assumes global locations for socket.io.js and easyrtc.js -->
-<script src="/socket.io/socket.io.js"></script>
-<script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
-<script type="text/javascript" src="easyrtc.js"></script>
+<head>
+    <title>easyrtc demo: simple audio and video chat</title>
+    <link rel='stylesheet' type='text/css' href='easyrtc.css' />
+
+    <!-- assumes global locations for socket.io.js and easyrtc.js -->
+    <script src='/socket.io/socket.io.js'></script>
+    <script type='text/javascript' src='/easyrtc/easyrtc.js'></script>
 
 </head>
-<body onload="init();">
-	<div id="overlay">
-		<button id="connect" onclick="connect()">connect</button>
-		<br /> Your name: <input type="text" id="userName" />
-	</div>
 
-	<div id="wrapper">
-		<div id="connect_controls">
-			<div id="iam">not yet connected...</div>
-			<br /> <strong>connected user:</strong>
-			<div id="other_clients"></div>
-		</div>
-		<div id="videos">
-			<video autoplay="autoplay" class="easyrtc_mirror" id="self_video"
-				muted="muted" volume="0"></video>
-			<div style="position: relative; float: left;">
-				<video autoplay="autoplay" class="caller_video" id="cv1"></video>
-			</div>
-			<!-- each caller video needs to be in it"s own div so it"s close button can be positioned correctly -->
-		</div>
+<body onload="load()">
+    <script>
+        var socket = io.connect();
+        socket.on('id', function(data) {
+            console.log('my id is: ' + data);
+            socket.id = data;
+        });
+    </script>
+    <div id='overlay'>
+        <button id='connect'>connect</button>
+        <br />Your name:
+        <input type='text' id='userName' />
+    </div>
 
-		<div id="chat">
-			<div id="send_message_area">
-				<textarea id="send_message_text"></textarea>
-			</div>
-			<div id="receive_message_area">
-				messages:
-				<div id="conversation"></div>
-			</div>
+    <div id='wrapper'>
+        <div id='connect_controls'>
+            <div id='iam'>not yet connected...</div>
+            <br /> <strong>connected user:</strong>
+            <div id='other_clients'></div>
+        </div>
+        <div id='videos'>
+            <video autoplay='autoplay' class='easyrtc_mirror' id='self_video' muted='muted' volume='0'></video>
+            <div style='position: relative; float: left;'>
+                <video autoplay='autoplay' class='caller_video' id='cv1'></video>
+            </div>
+            <!-- each caller video needs to be in it's own div so it's close button can be positioned correctly -->
+        </div>
 
-			<button id="send">send</button>
-		</div>
-	</div>
+        <div id='chat'>
+            <div id='send_message_area'>
+                <textarea id='send_message_text'></textarea>
+            </div>
+            <div id='receive_message_area'>
+                messages:
+                <div id='conversation'></div>
+            </div>
+
+            <button id='send'>send</button>
+        </div>
+    </div>
+    <script type='text/javascript' src='build/production.js'></script>
 </body>
+
 </html>

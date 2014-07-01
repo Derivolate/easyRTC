@@ -1,0 +1,33 @@
+$connected_client_width:200px;
+ $chat_width:300px;
+ $wrappers_margin:8px;
+ $wrappers_padding:12px;
+ #wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(26, 188, 156);
+}
+#connected_clients {
+    width: $connected_client_width;
+    background-color: rgb(46, 204, 113);
+}
+#videos {
+    float: none;
+    height: 230px;
+    background-color: rgb(52, 152, 219);
+    margin-top: 0;
+    margin-left: $connected_client_width + 2 * $wrappers_padding + 3* $wrappers_margin;
+    margin-right: $chat_width + 2 * $wrappers_padding + 3* $wrappers_margin;
+    position: relative;
+    top: $wrappers_margin;
+}
+#chat {
+    float: right;
+    width: $chat_width;
+    background-color: rgb(155, 89, 182);
+}
+.wrapper {
+    float: left;
+    padding: $wrappers_padding;
+    margin: $wrappers_margin;
+}

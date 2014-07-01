@@ -1,8 +1,9 @@
-var selfEasyrtcid = "";
-var connected_rtcid;
-var connected_peers = [];
+/*! Easyrtc_app - v0.0.3 -  2014-06-20 */
+function load(){
+function add_listeners() {
+    document.getElementById('connect').addEventListener('click', connect);
 
-function init() {}
+};
 
 function connect() {
     var userName = document.getElementById("userName").value;
@@ -10,8 +11,8 @@ function connect() {
         //easyrtc.showError ("BAD-USER-NAME", "illegal user name");
         return;
     }
+
     easyrtc.setUsername(userName);
-    console.log();
 
     document.getElementById("overlay").style.visibility = "hidden";
     easyrtc.setPeerListener(add_to_conversation); // Is called whenever there
@@ -93,3 +94,54 @@ function add_to_conversation(who, msg_type, content) { // add messages to the 'c
     // The actual chat mesage with the peer id in front of it
     document.getElementById("conversation").innerHTML += "<b>" + easyrtc.idToName(who) + ":</b>&nbsp;" + content + "<br />";
 }
+
+function game_init() {
+
+
+    var width = 500;
+    var height = 500;
+    var keys = [];
+    var c = document.getElementById("canvas");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "rgb(200,0,0)";
+    ctx.fillRect(10, 10, 55, 50);
+
+    ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+    ctx.fillRect(30, 30, 55, 50);
+    socket.on('update', function(data) {
+        ctx.clearRect(0, 0, width, height);
+    });
+
+    addEventListener("keydown", function(event) {
+        for (var i = 0; i < 4; i++) {
+            if (event.keyCode === i + 37) {
+                keys[i] = true;
+            }
+        }
+    });
+
+    addEventListener("keydown", function(event) {
+        for (var i = 0; i < 4; i++) {
+            if (event.keyCode === i + 37) {
+                keys[i] = false;
+            }
+        }
+    });
+}
+
+function game_loop() {
+    socket.emit('keys', keys);
+};
+
+// Globals needed for easyrtc
+var selfEasyrtcid = "";
+var connected_rtcid;
+var connected_peers = [];
+
+add_listeners();
+
+function init() {
+    game_init();
+}
+
+};
