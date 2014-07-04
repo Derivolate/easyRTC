@@ -15,8 +15,7 @@ function connect() {
     easyrtc.easyApp("easyrtc.audio_video", // The name of our application
         "self_video", // Id of the video element for our own media stream
 
-        [ // Array containing the id's of the video elements for the incoming
-            // media stream
+        [ // Array containing the id's of the video elements for the incoming media stream
             "cv1",
         ], function(easyrtcid) { // Initialisation succes callback
             selfEasyrtcid = easyrtcid;
@@ -87,3 +86,13 @@ function add_to_conversation(who, msg_type, content) { // add messages to the 'c
     // The actual chat mesage with the peer id in front of it
     document.getElementById("conversation").innerHTML += "<b>" + easyrtc.idToName(who) + ":</b>&nbsp;" + content + "<br />";
 }
+
+function hangup() {
+    easyrtc.hangupAll();
+}
+
+easyrtc.setOnStreamClosed(function(easyrtcid) {
+    easyrtc.setVideoObjectSrc(document.getElementById("cv1"), "");
+    (easyrtc.idToName(easyrtcid) + " went away");
+    console.log('disconnected user');
+});

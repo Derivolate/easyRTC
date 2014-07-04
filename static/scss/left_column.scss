@@ -1,0 +1,22 @@
+#left_column {
+    @extend .left_column;
+    position: absolute;
+}
+.left_column {
+    bottom: 0;
+    top: 0;
+    left: 0;
+}
+#connected_client {
+    @extend .left_column;
+    position: relative;
+    width: $left_column_width;
+    bottom: 100px;
+    background-color: rgba(20, 136, 200, $wrappers_opacity)
+}
+#controls {
+    @extend .left_column;
+    position: relative;
+    width: $left_column_width;
+    background-color: rgba(31, 81, 139, $wrappers_opacity)
+}

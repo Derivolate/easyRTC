@@ -1,0 +1,18 @@
+ #center_column {
+     width: auto;
+     margin-left: $left_column_width + 2 * $wrappers_padding + 3* $wrappers_margin;
+     margin-right: $chat_width + 2 * $wrappers_padding + 3* $wrappers_margin;
+ }
+ #videos {
+     float: none;
+     background-color: rgba(52, 152, 219, $wrappers_opacity);
+     margin-top: 0;
+     position: relative;
+     top: $wrappers_margin;
+ }
+ #content {
+     float: none;
+     background-color: rgba(108, 183, 233, $wrappers_opacity);
+     margin-top: 3* $wrappers_margin;
+     position: relative;
+ }

@@ -1,0 +1,19 @@
+#overlay {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    margin: -8px;
+    margin-top: 0px;
+    left: 8px;
+    text-align: center;
+    //visibility: hidden;
+
+}
+#connect {
+    width: 200px;
+    margin: auto;
+    margin-top: 300px;
+    font-size: 30px;
+}
