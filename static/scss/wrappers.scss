@@ -3,6 +3,7 @@
  $wrappers_margin:8px;
  $wrappers_padding:20px;
  $wrappers_opacity:0.6;
+ $chat_height:500px;
  @import 'left_column';
  @import 'center_column';
  .column {
@@ -28,7 +29,7 @@
      @extend .right_column;
      float: right;
      width: $chat_width;
-     height: 500px;
+     height: $chat_height;
      background-color: rgba(20, 136, 200, $wrappers_opacity)
  }
  #social_actions {

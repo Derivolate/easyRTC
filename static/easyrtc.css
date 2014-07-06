@@ -114,13 +114,12 @@ iframe {
   overflow-y: overlay;
   word-wrap: break-word;
   display: block;
-  position: absolute;
-  height: auto;
+  height: 420px;
   bottom: 0;
   top: 80px;
   left: 0;
   right: 0;
-  margin: 20px; }
+  margin: 4px; }
 
 #connect_controls {
   float: left;
@@ -142,7 +141,7 @@ iframe {
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 30px;
-  height: 0;
+  height: 300;
   overflow: hidden; }
 
 #yt_vid {

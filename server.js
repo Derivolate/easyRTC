@@ -1,4 +1,4 @@
-/*! Easyrtc_app - v0.0.3 -  2014-07-04 */ 
+/*! Easyrtc_app - v0.0.3 -  2014-07-06 */ 
 (function(){
 //Load required modules
 var https = require("https"); // https server core module
