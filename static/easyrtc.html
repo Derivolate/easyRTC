@@ -14,15 +14,21 @@
 <body onload="load()">
     <script>
         var socket = io.connect();
-        socket.on('id', function(data) {
+        socket.on('id', function (data) {
             console.log('my id is: ' + data);
             socket.id = data;
         });
     </script>
     <div id='overlay'>
+
         <button id='connect'>connect</button>
         <br />Your name:
         <input type='text' id='userName' />
+        <br/>
+        <input type="checkbox" checked="checked" id="share_audio" />Share audio
+        <br/>
+        <input type="checkbox" checked="checked" id="share_video" />Share video
+        <br />
     </div>
 
     <div id='wrapper'>
@@ -33,10 +39,6 @@
                 <div id='other_clients'></div>
             </div>
             <div id='controls' class='wrapper'>
-                <input type="checkbox" checked="checked" id="shareAudio" />Share audio
-                <br/>
-                <input type="checkbox" checked="checked" id="shareVideo" />Share video
-                <br />
                 <button id="hangup">Hangup</button>
             </div>
         </div>
