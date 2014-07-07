@@ -9,6 +9,9 @@ function connect() {
 
     easyrtc.setUsername(userName);
 
+    easyrtc.enableAudio(document.getElementById("share_audio").checked);
+    easyrtc.enableVideo(document.getElementById("share_video").checked);
+
     document.getElementById("overlay").style.visibility = "hidden";
     add_rtc_listeners();
     easyrtc.easyApp("easyrtc.audio_video", // The name of our application
@@ -16,13 +19,13 @@ function connect() {
 
         [ // Array containing the id's of the video elements for the incoming media stream
             "cv1",
-        ], function(easyrtcid) { // Initialisation succes callback
+        ], function (easyrtcid) { // Initialisation succes callback
             selfEasyrtcid = easyrtcid;
             document.getElementById("iam").innerHTML = "I am " + easyrtc.idToName(easyrtcid);
             console.log('my id is ' + easyrtcid);
         },
 
-        function(errorCode, message) { // Initialisation failure callback
+        function (errorCode, message) { // Initialisation failure callback
             easyrtc.showError(errorCode, message);
         });
 
@@ -34,11 +37,11 @@ function send_message() {
     var text = document.getElementById("send_message_text").value;
 
     add_to_conversation("Me", "message", text);
-    connected_peers.forEach(function(easy_rtcid) {
+    connected_peers.forEach(function (easy_rtcid) {
         if (text.replace(/\s/g, "").length === 0) { // Don"t send just whitespace
             return;
         }
-        easyrtc.sendPeerMessage(easy_rtcid, 'chat_message', text, function() { /*success*/ }, function() { /*failure*/ })
+        easyrtc.sendPeerMessage(easy_rtcid, 'chat_message', text, function () { /*success*/ }, function () { /*failure*/ })
 
         document.getElementById("send_message_text").value = "";
     });
@@ -68,7 +71,7 @@ function peer_connected(roomName, data, isPrimary) {
 }
 
 function perform_call(other_easyrtcid) {
-    easyrtc.call(other_easyrtcid, function() { /*success*/ }, function() { /*failure*/ });
+    easyrtc.call(other_easyrtcid, function () { /*success*/ }, function () { /*failure*/ });
 }
 
 function add_to_conversation(who, msg_type, content) { // add messages to the 'conversation' div Replaces all html symbols with javascript symbols.
@@ -84,7 +87,7 @@ function hangup() {
     easyrtc.hangupAll();
 }
 
-easyrtc.setOnStreamClosed(function(easyrtcid) {
+easyrtc.setOnStreamClosed(function (easyrtcid) {
     easyrtc.setVideoObjectSrc(document.getElementById("cv1"), "");
     (easyrtc.idToName(easyrtcid) + " went away");
     console.log('disconnected user');
