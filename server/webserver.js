@@ -16,6 +16,8 @@ var webServer = https.createServer({
     cert: fs.readFileSync("./81337973-localhost.crt")
 }, httpApp).listen(port);
 
+console.log('https express server running on ' + port);
+
 // Start Socket.io so it attaches itself to Express server
 var socketServer = io.listen(webServer, {
     "log level": 1

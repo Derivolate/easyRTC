@@ -89,6 +89,5 @@ function hangup() {
 
 easyrtc.setOnStreamClosed(function (easyrtcid) {
     easyrtc.setVideoObjectSrc(document.getElementById("cv1"), "");
-    (easyrtc.idToName(easyrtcid) + " went away");
     console.log('disconnected user');
 });

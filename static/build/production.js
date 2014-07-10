@@ -1,4 +1,4 @@
-/*! Easyrtc_app - v0.0.3 -  2014-07-06 */ 
+/*! Easyrtc_app - v0.0.3 -  2014-07-10 */ 
 function load(){
 function add_button_listeners() {
     document.getElementById('connect').addEventListener('click', connect);
@@ -137,7 +137,6 @@ function hangup() {
 
 easyrtc.setOnStreamClosed(function (easyrtcid) {
     easyrtc.setVideoObjectSrc(document.getElementById("cv1"), "");
-    (easyrtc.idToName(easyrtcid) + " went away");
     console.log('disconnected user');
 });
 // Globals needed for easyrtc

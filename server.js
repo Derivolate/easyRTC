@@ -1,4 +1,4 @@
-/*! Easyrtc_app - v0.0.3 -  2014-07-06 */ 
+/*! Easyrtc_app - v0.0.3 -  2014-07-10 */ 
 (function(){
 //Load required modules
 var https = require("https"); // https server core module
@@ -17,6 +17,8 @@ var webServer = https.createServer({
     key: fs.readFileSync("./81337973-localhost.key"),
     cert: fs.readFileSync("./81337973-localhost.crt")
 }, httpApp).listen(port);
+
+console.log('https express server running on ' + port);
 
 // Start Socket.io so it attaches itself to Express server
 var socketServer = io.listen(webServer, {
